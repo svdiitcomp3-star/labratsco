@@ -2,74 +2,87 @@
 <html>
 <head>
     <title>AgroSense Dynamics</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
         }
 
         header {
-            background: green;
-            color: white;
-            padding: 20px;
             text-align: center;
+            padding: 30px;
+            background: rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #00ffcc;
         }
 
         nav {
-            background: #2e7d32;
-            padding: 10px;
             text-align: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.6);
+            position: sticky;
+            top: 0;
         }
 
         nav a {
-            color: white;
+            color: #00ffcc;
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
         }
 
         section {
-            padding: 40px;
-            background: white;
-            margin: 20px;
-            border-radius: 10px;
+            padding: 50px;
         }
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #2e7d32;
-            color: white;
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,255,200,0.2);
         }
 
-        form input, select {
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        button {
+            background: #00ffcc;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #00ccaa;
+        }
+
+        select, input {
             width: 100%;
             padding: 10px;
             margin: 8px 0;
         }
 
-        button {
-            padding: 10px 20px;
-            background: green;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: black;
         }
 
-        button:hover {
-            background: darkgreen;
-        }
-
-        .success-message {
-            display: none;
-            color: green;
-            margin-top: 20px;
-        }
-
-        .radio-group {
-            margin-top: 10px;
+        .glow {
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
         }
     </style>
 </head>
@@ -77,100 +90,114 @@
 <body>
 
 <header>
-    <h1>AgroSense Dynamics</h1>
+    <h1 class="glow">AgroSense Dynamics</h1>
+    <p>Smart Agriculture Protection System</p>
     <p>Powered by LabRats and Co</p>
 </header>
 
 <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <a href="#versions">Versions</a>
     <a href="#order">Pre-Order</a>
 </nav>
 
+<!-- HOME -->
 <section id="home">
-    <h2>Welcome to AgroSense Dynamics</h2>
-    <p>
-        AgroSense Dynamics is an advanced smart agricultural protection system designed to protect
-        lands and gardens from animal disturbances using smart deterrent technologies.
-    </p>
-
-    <br>
-    <button onclick="location.href='#order'">Pre-Order Now</button>
+    <div class="card">
+        <h2>🌾 Welcome</h2>
+        <p>
+            AgroSense Dynamics is an advanced futuristic agricultural protection system
+            combining robotics, IoT, AI, and automation to protect crops from animals and intrusions.
+        </p>
+    </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-    <h2>About AgroSense Dynamics</h2>
-    <p>
-        AgroSense Dynamics is an innovative 3D printed robotic system that remains fixed in one location
-        and protects crops from animals, especially peacocks and other field intruders.
-        It integrates multiple safe deterrent technologies such as light signals, sound emitters,
-        sprinkler activation, and reflective mechanisms to prevent crop damage in an eco-friendly way.
-    </p>
+    <div class="card">
+        <h2>🤖 About the System</h2>
+        <p>
+            AgroSense Dynamics is designed as a multi-layer protection ecosystem.
+            It integrates robotic movement, AI-based detection, IoT control,
+            and automated deterrent mechanisms like laser, water spraying, and monitoring systems.
+        </p>
+    </div>
 </section>
 
-<section id="services">
-    <h2>Our Services</h2>
-    <p>
-        ✔ On-site installation in your farm or garden<br><br>
-        ✔ System calibration for your specific crop area<br><br>
-        ✔ Maintenance & repair support<br><br>
-        ✔ Annual service package<br><br>
-        ✔ 24/7 customer technical assistance
-    </p>
-</section>
+<!-- VERSIONS -->
+<section id="versions">
+    <h2 class="glow">System Versions</h2>
 
-<section id="contact">
-    <h2>Help / Contact</h2>
-    <p>
-        Email: sanchithvarshan@gmail.com<br><br>
-        Phone: 9942162727<br><br>
-        Team: LabRats and Co<br><br>
-        We are happy to support you with any queries regarding AgroSense Dynamics.
-    </p>
-</section>
+    <div class="grid">
 
-<section id="order">
-    <h2>Pre-Order AgroSense Dynamics</h2>
-
-    <form id="orderForm">
-
-        <label>Name:</label>
-        <input type="text" placeholder="Enter your name" required>
-
-        <label>Email (Gmail preferred):</label>
-        <input type="email" placeholder="Enter your Gmail" required>
-
-        <label>Phone Number:</label>
-        <input type="tel" placeholder="Enter your phone number" required>
-
-        <label><strong>Select Product Version:</strong></label>
-        <select id="productVersion" required>
-            <option value="V1">AgroSense V1 - ₹700</option>
-            <option value="V2">AgroSense V2 - ₹1600</option>
-            <option value="V3">AgroSense V3 - ₹2400</option>
-        </select>
-
-        <p id="priceDisplay"><strong>Price: ₹700</strong></p>
-
-        <div class="radio-group">
-            <label><strong>Payment Method:</strong></label><br><br>
-            <input type="radio" name="payment" required> Cash on Delivery<br>
-            <input type="radio" name="payment"> GPay<br>
-            <input type="radio" name="payment"> Card Pay
+        <div class="card">
+            <h3>V1 - IoT Laser Robot</h3>
+            <p>
+                A rotating robotic system activated at night via IoT control.
+                Uses laser diode deterrent to scare animals like peacocks.
+                Head rotates automatically when activated remotely.
+            </p>
         </div>
 
-        <br>
-        <button type="submit">Pre-Order Now</button>
-    </form>
+        <div class="card">
+            <h3>V2 - AI Detection System</h3>
+            <p>
+                Uses ESP32-CAM to capture images and perform AI-based detection.
+                If a peacock or animal is detected, water spraying system activates automatically.
+            </p>
+        </div>
 
-    <p class="success-message" id="successMessage">
-        ✅ Order placed successfully! <br><br>
-        We will contact you through your Gmail for address confirmation and further details. <br><br>
-        Team: LabRats and Co<br><br>
-        Official Contact: sanchithvarshan@gmail.com
-    </p>
+        <div class="card">
+            <h3>V3 - Mobile Robot Integration</h3>
+            <p>
+                Combines V1 and V2 mounted on a line-following or object-detecting robot
+                for dynamic field coverage and autonomous movement.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>V4 - Smart Security Extension</h3>
+            <p>
+                Includes ESP32-CAM monitoring for motor room or storage area.
+                Detects theft or intrusion and provides visual monitoring and alerts.
+                Price: ₹2500
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+    <div class="card">
+        <h2>🛒 Pre-Order</h2>
+
+        <form id="orderForm">
+
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone Number" required>
+
+            <select id="productVersion">
+                <option value="V1">V1 - ₹700</option>
+                <option value="V2">V2 - ₹1600</option>
+                <option value="V3">V3 - ₹2400</option>
+                <option value="V4">V4 - ₹2500</option>
+            </select>
+
+            <p id="priceDisplay">Price: ₹700</p>
+
+            <br>
+
+            <button type="submit">Place Order</button>
+
+        </form>
+
+        <p id="successMessage" style="display:none; color: lightgreen;">
+            ✅ Order placed successfully! Our team will contact you.
+        </p>
+    </div>
 </section>
 
 <footer>
@@ -181,31 +208,21 @@
 const prices = {
     V1: 700,
     V2: 1600,
-    V3: 2400
+    V3: 2400,
+    V4: 2500
 };
 
-// Update price when version changes
+// update price
 document.getElementById("productVersion").addEventListener("change", function() {
-    let selected = this.value;
     document.getElementById("priceDisplay").innerText =
-        "Price: ₹" + prices[selected];
+        "Price: ₹" + prices[this.value];
 });
 
-// Form submit
-document.getElementById("orderForm").addEventListener("submit", function(event){
-
-    event.preventDefault();
-
-    let selectedProduct = document.getElementById("productVersion").value;
-    let price = prices[selectedProduct];
-
-    console.log("Product:", selectedProduct);
-    console.log("Price:", price);
-
+// submit form
+document.getElementById("orderForm").addEventListener("submit", function(e){
+    e.preventDefault();
     document.getElementById("successMessage").style.display = "block";
     this.reset();
-
-    document.getElementById("priceDisplay").innerText = "Price: ₹700";
 });
 </script>
 
