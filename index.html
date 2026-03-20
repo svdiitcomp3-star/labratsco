@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AgroSense Dynamics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: green;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #2e7d32;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 40px;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #2e7d32;
+            color: white;
+        }
+
+        form input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        .success-message {
+            display: none;
+            color: green;
+            margin-top: 20px;
+        }
+
+        .radio-group {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>AgroSense Dynamics</h1>
+    <p>Powered by LabRats and Co</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="#order">Pre-Order</a>
+</nav>
+
+<section id="home">
+    <h2>Welcome to AgroSense Dynamics</h2>
+    <p>
+        AgroSense Dynamics is an advanced smart agricultural protection system designed to protect
+        lands and gardens from animal disturbances using smart deterrent technologies.
+    </p>
+
+    <br>
+    <button onclick="location.href='#order'">Pre-Order Now</button>
+</section>
+
+<section id="about">
+    <h2>About AgroSense Dynamics</h2>
+    <p>
+        AgroSense Dynamics is an innovative 3D printed robotic system that remains fixed in one location
+        and protects crops from animals, especially peacocks and other field intruders.
+        It integrates multiple safe deterrent technologies such as light signals, sound emitters,
+        sprinkler activation, and reflective mechanisms to prevent crop damage in an eco-friendly way.
+    </p>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <p>
+        ✔ On-site installation in your farm or garden<br><br>
+        ✔ System calibration for your specific crop area<br><br>
+        ✔ Maintenance & repair support<br><br>
+        ✔ Annual service package<br><br>
+        ✔ 24/7 customer technical assistance
+    </p>
+</section>
+
+<section id="contact">
+    <h2>Help / Contact</h2>
+    <p>
+        Email: sanchithvarshan@gmail.com<br><br>
+        Phone: 9942162727<br><br>
+        Team: LabRats and Co<br><br>
+        We are happy to support you with any queries regarding AgroSense Dynamics.
+    </p>
+</section>
+
+<section id="order">
+    <h2>Pre-Order AgroSense Dynamics</h2>
+
+    <form id="orderForm">
+
+        <label>Name:</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Email (Gmail preferred):</label>
+        <input type="email" placeholder="Enter your Gmail" required>
+
+        <label>Phone Number:</label>
+        <input type="tel" placeholder="Enter your phone number" required>
+
+        <label><strong>Select Product Version:</strong></label>
+        <select id="productVersion" required>
+            <option value="V1">AgroSense V1 - ₹700</option>
+            <option value="V2">AgroSense V2 - ₹1600</option>
+            <option value="V3">AgroSense V3 - ₹2400</option>
+        </select>
+
+        <p id="priceDisplay"><strong>Price: ₹700</strong></p>
+
+        <div class="radio-group">
+            <label><strong>Payment Method:</strong></label><br><br>
+            <input type="radio" name="payment" required> Cash on Delivery<br>
+            <input type="radio" name="payment"> GPay<br>
+            <input type="radio" name="payment"> Card Pay
+        </div>
+
+        <br>
+        <button type="submit">Pre-Order Now</button>
+    </form>
+
+    <p class="success-message" id="successMessage">
+        ✅ Order placed successfully! <br><br>
+        We will contact you through your Gmail for address confirmation and further details. <br><br>
+        Team: LabRats and Co<br><br>
+        Official Contact: sanchithvarshan@gmail.com
+    </p>
+</section>
+
+<footer>
+    © 2026 AgroSense Dynamics | LabRats and Co
+</footer>
+
+<script>
+const prices = {
+    V1: 700,
+    V2: 1600,
+    V3: 2400
+};
+
+// Update price when version changes
+document.getElementById("productVersion").addEventListener("change", function() {
+    let selected = this.value;
+    document.getElementById("priceDisplay").innerText =
+        "Price: ₹" + prices[selected];
+});
+
+// Form submit
+document.getElementById("orderForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    let selectedProduct = document.getElementById("productVersion").value;
+    let price = prices[selectedProduct];
+
+    console.log("Product:", selectedProduct);
+    console.log("Price:", price);
+
+    document.getElementById("successMessage").style.display = "block";
+    this.reset();
+
+    document.getElementById("priceDisplay").innerText = "Price: ₹700";
+});
+</script>
+
+</body>
+</html>
