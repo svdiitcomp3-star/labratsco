@@ -7,82 +7,116 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
+            background: radial-gradient(circle at top, #0a0f1f, #05070f);
+            color: #e0e0ff;
+            overflow-x: hidden;
+        }
+
+        /* Animated glow background */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,255,255,0.08), transparent 40%),
+                        radial-gradient(circle, rgba(255,0,255,0.08), transparent 40%);
+            animation: moveBg 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveBg {
+            0% { transform: translate(0,0); }
+            50% { transform: translate(-25%, -25%); }
+            100% { transform: translate(0,0); }
         }
 
         header {
             text-align: center;
-            padding: 30px;
-            background: rgba(0,0,0,0.4);
+            padding: 40px;
         }
 
         h1 {
-            font-size: 40px;
-            color: #00ffcc;
+            font-size: 42px;
+            color: #00f7ff;
+            text-shadow: 0 0 20px #00f7ff, 0 0 40px #0088ff;
         }
 
         nav {
             text-align: center;
-            padding: 10px;
-            background: rgba(0,0,0,0.6);
-            position: sticky;
-            top: 0;
+            padding: 15px;
+            backdrop-filter: blur(10px);
         }
 
         nav a {
-            color: #00ffcc;
+            color: #ffffff;
             margin: 15px;
             text-decoration: none;
             font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00f7ff;
+            text-shadow: 0 0 10px #00f7ff;
         }
 
         section {
-            padding: 50px;
+            padding: 60px 20px;
         }
 
         .card {
             background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0,255,255,0.2);
+            border-radius: 15px;
             padding: 20px;
             margin: 15px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,255,200,0.2);
+            box-shadow: 0 0 20px rgba(0,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0,255,255,0.4);
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
         }
 
         button {
-            background: #00ffcc;
+            background: linear-gradient(90deg, #00f7ff, #7a5cff);
             border: none;
             padding: 12px 20px;
             border-radius: 8px;
-            cursor: pointer;
+            color: black;
             font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         button:hover {
-            background: #00ccaa;
+            box-shadow: 0 0 15px #00f7ff;
         }
 
         select, input {
             width: 100%;
             padding: 10px;
             margin: 8px 0;
+            background: black;
+            color: white;
+            border: 1px solid #00f7ff;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background: black;
+            background: rgba(0,0,0,0.6);
         }
 
         .glow {
-            color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc;
+            color: #00f7ff;
+            text-shadow: 0 0 10px #00f7ff;
         }
     </style>
 </head>
@@ -90,9 +124,8 @@
 <body>
 
 <header>
-    <h1 class="glow">AgroSense Dynamics</h1>
-    <p>Smart Agriculture Protection System</p>
-    <p>Powered by LabRats and Co</p>
+    <h1>AgroSense Dynamics</h1>
+    <p>Next-Gen Smart Agriculture Protection System</p>
 </header>
 
 <nav>
@@ -102,80 +135,74 @@
     <a href="#order">Pre-Order</a>
 </nav>
 
-<!-- HOME -->
 <section id="home">
     <div class="card">
-        <h2>🌾 Welcome</h2>
+        <h2 class="glow">Welcome</h2>
         <p>
-            AgroSense Dynamics is an advanced futuristic agricultural protection system
-            combining robotics, IoT, AI, and automation to protect crops from animals and intrusions.
+            A futuristic agricultural defense system combining IoT, AI, and robotics
+            to protect farms from animal intrusion using automated deterrent technologies.
         </p>
     </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
     <div class="card">
-        <h2>🤖 About the System</h2>
+        <h2 class="glow">About the Project</h2>
         <p>
-            AgroSense Dynamics is designed as a multi-layer protection ecosystem.
-            It integrates robotic movement, AI-based detection, IoT control,
-            and automated deterrent mechanisms like laser, water spraying, and monitoring systems.
+            AgroSense Dynamics integrates intelligent systems such as laser deterrents,
+            AI-based vision detection, and autonomous robotics to create a layered
+            protection ecosystem for modern agriculture.
         </p>
     </div>
 </section>
 
-<!-- VERSIONS -->
 <section id="versions">
-    <h2 class="glow">System Versions</h2>
+    <h2 class="glow">Versions Overview</h2>
 
     <div class="grid">
 
         <div class="card">
-            <h3>V1 - IoT Laser Robot</h3>
+            <h3>V1 - IoT Laser Robot (₹700)</h3>
             <p>
-                A rotating robotic system activated at night via IoT control.
-                Uses laser diode deterrent to scare animals like peacocks.
-                Head rotates automatically when activated remotely.
+                Night-activated robotic system controlled via IoT.
+                Rotating head with laser diode used to deter animals like peacocks.
             </p>
         </div>
 
         <div class="card">
-            <h3>V2 - AI Detection System</h3>
+            <h3>V2 - AI Vision System (₹1600)</h3>
             <p>
-                Uses ESP32-CAM to capture images and perform AI-based detection.
-                If a peacock or animal is detected, water spraying system activates automatically.
+                ESP32-CAM captures images and performs AI detection.
+                Automatically triggers water spraying when animals are detected.
             </p>
         </div>
 
         <div class="card">
-            <h3>V3 - Mobile Robot Integration</h3>
+            <h3>V3 - Autonomous Robot Platform (₹2400)</h3>
             <p>
-                Combines V1 and V2 mounted on a line-following or object-detecting robot
-                for dynamic field coverage and autonomous movement.
+                Combines V1 + V2 mounted on a line-following or object-detection robot
+                for dynamic field monitoring and movement.
             </p>
         </div>
 
         <div class="card">
-            <h3>V4 - Smart Security Extension</h3>
+            <h3>V4 - Smart Security Extension (₹2500)</h3>
             <p>
-                Includes ESP32-CAM monitoring for motor room or storage area.
-                Detects theft or intrusion and provides visual monitoring and alerts.
-                Price: ₹2500
+                Includes ESP32-CAM for monitoring storage/motor room.
+                Helps detect intrusion and enhances security with visual surveillance.
             </p>
         </div>
 
     </div>
 </section>
 
-<!-- ORDER -->
 <section id="order">
     <div class="card">
-        <h2>🛒 Pre-Order</h2>
+        <h2 class="glow">Pre-Order</h2>
 
         <form id="orderForm">
 
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" placeholder="Name" required>
             <input type="email" placeholder="Email" required>
             <input type="tel" placeholder="Phone Number" required>
 
@@ -188,13 +215,11 @@
 
             <p id="priceDisplay">Price: ₹700</p>
 
-            <br>
-
             <button type="submit">Place Order</button>
 
         </form>
 
-        <p id="successMessage" style="display:none; color: lightgreen;">
+        <p id="successMessage" style="display:none; color:#00f7ff;">
             ✅ Order placed successfully! Our team will contact you.
         </p>
     </div>
@@ -212,13 +237,11 @@ const prices = {
     V4: 2500
 };
 
-// update price
 document.getElementById("productVersion").addEventListener("change", function() {
     document.getElementById("priceDisplay").innerText =
         "Price: ₹" + prices[this.value];
 });
 
-// submit form
 document.getElementById("orderForm").addEventListener("submit", function(e){
     e.preventDefault();
     document.getElementById("successMessage").style.display = "block";
